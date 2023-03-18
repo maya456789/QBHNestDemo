@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Param, Post,Delete  } from '@nestjs/common';
 import { ClientService } from 'src/services/client/client.service';
 
 @Controller('client_info')
@@ -33,9 +33,9 @@ export class ClientController {
         return this.clientServic.addToClientInfo(record);
     }
 
-    // @Get('list/:id')
-    // @HttpCode(204)
-    // getId(@Param() lid:any){
-    //     return "Id is :"+lid.id;
-    // }
+    @Delete('deleteClient/:id')
+    @HttpCode(204) 
+    getId(@Param() lid:any){
+        return this.clientServic.deleteClient(lid.id);
+    }
 }

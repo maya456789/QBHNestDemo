@@ -17,5 +17,14 @@ export class ClientService {
       async addToClientInfo(record){
         return await this.clientModel.create({name:record.name,email:record.email,phone:record.phone})
       }
+
+      async deleteClient(cid){
+
+        return await this.clientModel.destroy({
+            where:{
+                id:cid, 
+                 }
+            })
+      }
     
 }
