@@ -14,7 +14,7 @@ import { client_info } from './schemas/client.model';
       port: 3306,
       username: 'root',
       password: '',
-      database: 'client',
+      database: 'add_client',
       models: [client_info],
       autoLoadModels: true,
       synchronize: true,

@@ -10,6 +10,7 @@ const PDFDocument=require('pdfkit-table');
 export class AppService {
 
   public data;
+  
 
   constructor(private sequelize: Sequelize, @InjectModel(client_info)
   private clientModel: typeof client_info,) {}
