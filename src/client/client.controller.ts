@@ -16,9 +16,10 @@ export class ClientController {
        
     }
 
-    @Get()
-    client_info():string{
-         return "Client controller !";
+    @Get('edit_client/:id')
+    client_info(@Param() lid:any){
+         console.log("Edit id is:",lid);
+         return this.clientServic.getSingleClient(lid.id);
     }
 
     // @Get('obj')
@@ -38,4 +39,13 @@ export class ClientController {
     getId(@Param() lid:any){
         return this.clientServic.deleteClient(lid.id);
     }
+
+    @Post('editedClient')
+    @HttpCode(201)
+    edit_post(@Body() record:any){
+        console.log(" Edited Records are :->",record);
+        return this.clientServic.updateClientInfo(record);
+      // return "Updated successfully";
+    }
+
 }

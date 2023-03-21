@@ -26,5 +26,19 @@ export class ClientService {
                  }
             })
       }
+
+      async getSingleClient(sid){
+        return await this.clientModel.findOne({
+          where:{
+            id:sid, 
+             }
+        });
+      }
+
+      async updateClientInfo(record){
+        return await this.clientModel.update({name:record.name,email:record.email,phone:record.phone},{  where:{
+          id:record.id, 
+           }})
+      }
     
 }
